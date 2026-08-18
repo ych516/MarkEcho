@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MarkEcho · 回笺</title>
+  <meta name="description" content="Windows 本地 Markdown 阅读、批注与改稿工具。让每一次修改，都有 MarkEcho。" />
+  <link rel="icon" href="markecho.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:wght@400;500;600&family=Source+Han+Serif+SC:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-echo" aria-hidden="true"></div>
+  <header class="top">
+    <a class="brand" href="./">
+      <img src="markecho.svg" alt="" width="32" height="32" />
+      <span>MarkEcho</span>
+      <span class="zh">回笺</span>
+    </a>
+    <nav>
+      <a href="#download">下载</a>
+      <a href="https://github.com/ych516/MarkEcho/releases">Releases</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">本地 Markdown 审阅工具</p>
+      <h1>让每一次修改，<br />都有 <em>MarkEcho</em>。</h1>
+      <p class="lede">在排版稿上圈选意见，导出给外部 AI，再把完整新稿收成新版本。正文始终是干净的 Markdown，批注走旁路。</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#download">下载安装</a>
+        <a class="btn btn-ghost" href="#flow">看看主路径</a>
+      </div>
+    </section>
+
+    <section id="flow" class="flow">
+      <ol>
+        <li>
+          <span class="n">01</span>
+          <h2>阅读</h2>
+          <p>打开本地 <code>.md</code>。CommonMark、GFM 表格与脚注、Mermaid 图，按排版稿读。</p>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <h2>批注</h2>
+          <p>选中原文，在右侧审阅面板写下意见。批注存在 <code>*.echo.json</code>，不写进正文。</p>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <h2>改稿</h2>
+          <p>导出任务包给外部模型，把完整回复贴回来，生成 v2。已采纳的批注自动归档。</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="download" class="download">
+      <h2>安装到自己的电脑</h2>
+      <p class="lede">目前提供 Windows 桌面版。应用在本地运行，没有账号服务器，也没有云同步。macOS 版验证完成后再开放下载。</p>
+      <div class="cards">
+        <article class="card" data-os="windows">
+          <h3>Windows</h3>
+          <p class="asset-name" data-role="name">安装包准备中</p>
+          <a class="btn btn-gold" data-role="btn" aria-disabled="true">即将发布</a>
+        </article>
+      </div>
+      <p class="fine" id="release-meta">安装包将发布在本仓库的 GitHub Releases。有新版本时，按钮会自动指向最新文件。</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>MarkEcho · 回笺。源码不在此仓库。此站只提供介绍与安装包下载。</p>
+  </footer>
+  <script src="site.js"></script>
+</body>
+</html>
