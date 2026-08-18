@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MarkEcho · 回笺</title>
-  <meta name="description" content="在排版稿上圈选意见，导出给外部 AI 改稿。正文保持干净 Markdown。Windows 本地应用。" />
+  <meta name="description" content="在排版好的 Markdown 上圈选意见，交给外部 AI 改出新一版。原文始终干净。Windows 桌面应用。" />
   <meta property="og:title" content="MarkEcho · 回笺" />
   <meta property="og:description" content="让每一次修改，都有 MarkEcho。" />
   <meta property="og:type" content="website" />
@@ -19,7 +19,7 @@
       <span class="brand-zh">回笺</span>
     </a>
     <nav>
-      <a href="#product">产品</a>
+      <a href="#product">界面</a>
       <a href="#download">下载</a>
     </nav>
     <a class="btn btn-accent top-cta" href="#download">下载 Windows 版</a>
@@ -27,22 +27,22 @@
 
   <main>
     <section class="hero">
-      <p class="eyebrow">本地 Markdown 审阅</p>
+      <p class="eyebrow">给 Markdown 用的审阅工具</p>
       <h1>在稿上圈意见，<br />而不是在稿里留痕。</h1>
-      <p class="lede">选中原文、写下批注、导出给外部 AI、收回完整新稿。正文始终是干净的 <code>.md</code>，批注走旁路 sidecar。</p>
+      <p class="lede">打开一篇方案或说明，在排版稿上划出有问题的句子，写下你的意见，交给外部 AI 改出完整新稿。原文始终干干净净，批注不会嵌进去。</p>
       <div class="hero-actions">
         <a class="btn btn-accent" href="#download">下载 Windows 版</a>
         <a class="btn btn-quiet" href="#product">看一眼界面</a>
       </div>
-      <p class="hero-note">Windows 桌面应用 · 无账号 · 不联网改稿</p>
+      <p class="hero-note">先提供 Windows · 文稿留在你的电脑上 · 不用注册</p>
     </section>
 
-    <section id="product" class="product" aria-label="产品界面">
-      <div class="window" role="img" aria-label="MarkEcho 阅读与审阅界面示意">
+    <section id="product" class="product" aria-label="阅读与审阅界面示意">
+      <div class="window" role="img" aria-label="在排版稿上选中一句话，右侧写下批注">
         <div class="titlebar">
           <div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="title-center">
-            <span class="fname">方案.md</span>
+            <span class="fname">首页改版.md</span>
             <span class="pill">v1</span>
           </div>
           <span class="win-app">MarkEcho</span>
@@ -51,8 +51,8 @@
           <aside class="col files">
             <div class="tabs"><span class="on">文件</span><span>大纲</span></div>
             <ul>
-              <li>README.md</li>
-              <li class="current">方案.md</li>
+              <li>产品原则.md</li>
+              <li class="current">首页改版.md</li>
               <li>发布说明.md</li>
             </ul>
           </aside>
@@ -63,47 +63,47 @@
               <span class="seg review-on">审阅 1</span>
             </div>
             <article class="prose">
-              <h2>发布策略</h2>
-              <p>第一版只覆盖 Windows。安装包走官网 Releases，源码继续放在私仓。</p>
-              <p>公开站点只负责介绍与下载，<mark>不要把仓库当成第二个源码树</mark>。</p>
-              <p>macOS 需要公证和真机验证，完成前不开放下载入口。</p>
+              <h2>首页改版</h2>
+              <p>第一屏只讲一件事：这是给写作者看的排版稿，不是后台。</p>
+              <p>报名按钮请移出首屏。<mark>读者还没理解产品，就先看到报名。</mark></p>
+              <p>第二屏再用一个真实场景说明：圈选、批注、收回新稿。</p>
             </article>
           </section>
           <aside class="col inspector">
             <div class="insp-head">审阅</div>
             <div class="card active">
-              <p class="quote">不要把仓库当成第二个源码树</p>
-              <p class="body">官网仓只放页面和安装包，避免访客在 Releases 旁边翻到源码。</p>
-              <p class="meta">访客 · 一条批注</p>
+              <p class="quote">读者还没理解产品，就先看到报名。</p>
+              <p class="body">首屏先把「在稿上圈意见」讲清楚。报名放到看完场景之后。</p>
+              <p class="meta">小林 · 刚才</p>
             </div>
-            <p class="insp-hint">在正文中选中文字，再添加批注。</p>
+            <p class="insp-hint">在正文里选中文字，再添加批注。</p>
           </aside>
         </div>
       </div>
     </section>
 
     <section class="principles">
-      <h2>三条硬约定</h2>
+      <h2>用起来是这样</h2>
       <ul>
         <li>
-          <h3>正文干净</h3>
-          <p>批注不写进 Markdown，没有花括号修订痕迹，重开文件高亮仍钉在原句。</p>
+          <h3>对着排版稿批</h3>
+          <p>表格、列表、图片、示意图都按阅读样子呈现。你圈的是读者会看到的那一版。</p>
         </li>
         <li>
-          <h3>旁路存储</h3>
-          <p>意见与版本落在 <code>*.echo.json</code>。保存时正文和 sidecar 一起写。</p>
+          <h3>原文不被改乱</h3>
+          <p>意见记在旁边，不写进稿件。发给同事的仍然是干净 Markdown。</p>
         </li>
         <li>
-          <h3>改稿在外</h3>
-          <p>应用不调用模型。导出任务包，把完整回复贴回来，成为新版本。</p>
+          <h3>用你自己的 AI 改</h3>
+          <p>导出一份带批注的任务，贴到你常用的模型里。把完整回复拿回来，就是新的一版。</p>
         </li>
       </ul>
     </section>
 
     <section id="download" class="download">
       <div class="dl-copy">
-        <h2>安装到自己的电脑</h2>
-        <p>目前提供 Windows 桌面版。应用在本地运行，没有账号服务器，也没有云同步。</p>
+        <h2>下载到电脑里用</h2>
+        <p>现在开放 Windows 版。打开的是你磁盘上的文件，不用登录，文稿也不会被上传。</p>
       </div>
       <div class="dl-box" data-os="windows">
         <div>
@@ -112,13 +112,13 @@
         </div>
         <a class="btn btn-accent" data-role="btn" aria-disabled="true">即将发布</a>
       </div>
-      <p class="fine" id="release-meta">安装包发布在本仓库 GitHub Releases。有新版本时，按钮会自动指向最新文件。macOS 版验证完成后再提供。</p>
+      <p class="fine" id="release-meta">有新版本时，这里会直接提供下载。macOS 还在验证，暂时不提供。</p>
     </section>
   </main>
 
   <footer>
-    <p><strong>MarkEcho · 回笺</strong>　让每一次修改，都有 MarkEcho。</p>
-    <p class="foot-sub">此站只提供介绍与 Windows 安装包。源码不在此仓库。</p>
+    <p><strong>MarkEcho · 回笺</strong></p>
+    <p class="foot-sub">让每一次修改，都有 MarkEcho。</p>
   </footer>
   <script src="site.js"></script>
 </body>

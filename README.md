@@ -1,9 +1,7 @@
-# MarkEcho · 回笺（官网）
+# MarkEcho · 回笺
 
-公开官网与 Windows 安装包下载：https://ych516.github.io/MarkEcho/
+在排版好的 Markdown 上圈选意见，交给外部 AI 改出新一版。
 
-- 不含桌面应用源码
-- 安装包发在本仓库 Releases
-- macOS 在验证完成前不提供下载
+官网：https://ych516.github.io/MarkEcho/
 
-GitHub Pages 发布自 `main` 根目录。
+目前提供 Windows 桌面版（安装包发布后可在官网下载）。macOS 还在验证。

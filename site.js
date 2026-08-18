@@ -29,10 +29,10 @@ async function main() {
     const win = pickWindows(data.assets || []);
     if (win && box) enable(box, win);
     if (data.tag_name) {
-      meta.textContent = `当前版本 ${data.tag_name}。macOS 版验证完成后再提供。`;
+      meta.textContent = `当前版本 ${data.tag_name}。macOS 还在验证，暂时不提供。`;
     }
   } catch (err) {
-    meta.textContent = "暂时读不到 Releases。可稍后重试，或打开仓库的 Releases 页面。";
+    meta.textContent = "暂时拿不到安装包，请稍后再试。macOS 还在验证，暂时不提供。";
   }
 }
 
