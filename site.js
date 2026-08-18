@@ -1,3 +1,4 @@
+
 const RELEASES = "https://api.github.com/repos/ych516/MarkEcho/releases/latest";
 
 function pickWindows(assets) {
@@ -8,9 +9,9 @@ function pickWindows(assets) {
     || null;
 }
 
-function enable(card, asset) {
-  const btn = card.querySelector("[data-role=btn]");
-  const name = card.querySelector("[data-role=name]");
+function enable(box, asset) {
+  const btn = box.querySelector("[data-role=btn]");
+  const name = box.querySelector("[data-role=name]");
   btn.href = asset.browser_download_url;
   btn.removeAttribute("aria-disabled");
   btn.textContent = "下载安装包";
@@ -19,19 +20,19 @@ function enable(card, asset) {
 
 async function main() {
   const meta = document.getElementById("release-meta");
+  const box = document.querySelector("[data-os=windows]");
   try {
     const res = await fetch(RELEASES);
     if (res.status === 404) return;
     if (!res.ok) throw new Error(String(res.status));
     const data = await res.json();
     const win = pickWindows(data.assets || []);
-    const winCard = document.querySelector('[data-os="windows"]');
-    if (win && winCard) enable(winCard, win);
+    if (win && box) enable(box, win);
     if (data.tag_name) {
-      meta.textContent = `当前版本 ${data.tag_name} · Windows 安装包来自本仓库 GitHub Releases。`;
+      meta.textContent = `当前版本 ${data.tag_name}。macOS 版验证完成后再提供。`;
     }
   } catch (err) {
-    meta.textContent = "暂时读不到 Releases，过一会儿再试，或打开上方 Releases 页面。";
+    meta.textContent = "暂时读不到 Releases。可稍后重试，或打开仓库的 Releases 页面。";
   }
 }
 

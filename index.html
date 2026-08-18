@@ -4,74 +4,121 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MarkEcho · 回笺</title>
-  <meta name="description" content="Windows 本地 Markdown 阅读、批注与改稿工具。让每一次修改，都有 MarkEcho。" />
+  <meta name="description" content="在排版稿上圈选意见，导出给外部 AI 改稿。正文保持干净 Markdown。Windows 本地应用。" />
+  <meta property="og:title" content="MarkEcho · 回笺" />
+  <meta property="og:description" content="让每一次修改，都有 MarkEcho。" />
+  <meta property="og:type" content="website" />
   <link rel="icon" href="markecho.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:wght@400;500;600&family=Source+Han+Serif+SC:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg-echo" aria-hidden="true"></div>
   <header class="top">
     <a class="brand" href="./">
-      <img src="markecho.svg" alt="" width="32" height="32" />
-      <span>MarkEcho</span>
-      <span class="zh">回笺</span>
+      <img src="markecho.svg" width="28" height="28" alt="" />
+      <span class="brand-en">MarkEcho</span>
+      <span class="brand-zh">回笺</span>
     </a>
     <nav>
+      <a href="#product">产品</a>
       <a href="#download">下载</a>
-      <a href="https://github.com/ych516/MarkEcho/releases">Releases</a>
     </nav>
+    <a class="btn btn-accent top-cta" href="#download">下载 Windows 版</a>
   </header>
 
   <main>
     <section class="hero">
-      <p class="eyebrow">本地 Markdown 审阅工具</p>
-      <h1>让每一次修改，<br />都有 <em>MarkEcho</em>。</h1>
-      <p class="lede">在排版稿上圈选意见，导出给外部 AI，再把完整新稿收成新版本。正文始终是干净的 Markdown，批注走旁路。</p>
+      <p class="eyebrow">本地 Markdown 审阅</p>
+      <h1>在稿上圈意见，<br />而不是在稿里留痕。</h1>
+      <p class="lede">选中原文、写下批注、导出给外部 AI、收回完整新稿。正文始终是干净的 <code>.md</code>，批注走旁路 sidecar。</p>
       <div class="hero-actions">
-        <a class="btn btn-gold" href="#download">下载安装</a>
-        <a class="btn btn-ghost" href="#flow">看看主路径</a>
+        <a class="btn btn-accent" href="#download">下载 Windows 版</a>
+        <a class="btn btn-quiet" href="#product">看一眼界面</a>
+      </div>
+      <p class="hero-note">Windows 桌面应用 · 无账号 · 不联网改稿</p>
+    </section>
+
+    <section id="product" class="product" aria-label="产品界面">
+      <div class="window" role="img" aria-label="MarkEcho 阅读与审阅界面示意">
+        <div class="titlebar">
+          <div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="title-center">
+            <span class="fname">方案.md</span>
+            <span class="pill">v1</span>
+          </div>
+          <span class="win-app">MarkEcho</span>
+        </div>
+        <div class="shell">
+          <aside class="col files">
+            <div class="tabs"><span class="on">文件</span><span>大纲</span></div>
+            <ul>
+              <li>README.md</li>
+              <li class="current">方案.md</li>
+              <li>发布说明.md</li>
+            </ul>
+          </aside>
+          <section class="col reader">
+            <div class="docbar">
+              <span class="seg on">阅读</span>
+              <span class="seg">编辑</span>
+              <span class="seg review-on">审阅 1</span>
+            </div>
+            <article class="prose">
+              <h2>发布策略</h2>
+              <p>第一版只覆盖 Windows。安装包走官网 Releases，源码继续放在私仓。</p>
+              <p>公开站点只负责介绍与下载，<mark>不要把仓库当成第二个源码树</mark>。</p>
+              <p>macOS 需要公证和真机验证，完成前不开放下载入口。</p>
+            </article>
+          </section>
+          <aside class="col inspector">
+            <div class="insp-head">审阅</div>
+            <div class="card active">
+              <p class="quote">不要把仓库当成第二个源码树</p>
+              <p class="body">官网仓只放页面和安装包，避免访客在 Releases 旁边翻到源码。</p>
+              <p class="meta">访客 · 一条批注</p>
+            </div>
+            <p class="insp-hint">在正文中选中文字，再添加批注。</p>
+          </aside>
+        </div>
       </div>
     </section>
 
-    <section id="flow" class="flow">
-      <ol>
+    <section class="principles">
+      <h2>三条硬约定</h2>
+      <ul>
         <li>
-          <span class="n">01</span>
-          <h2>阅读</h2>
-          <p>打开本地 <code>.md</code>。CommonMark、GFM 表格与脚注、Mermaid 图，按排版稿读。</p>
+          <h3>正文干净</h3>
+          <p>批注不写进 Markdown，没有花括号修订痕迹，重开文件高亮仍钉在原句。</p>
         </li>
         <li>
-          <span class="n">02</span>
-          <h2>批注</h2>
-          <p>选中原文，在右侧审阅面板写下意见。批注存在 <code>*.echo.json</code>，不写进正文。</p>
+          <h3>旁路存储</h3>
+          <p>意见与版本落在 <code>*.echo.json</code>。保存时正文和 sidecar 一起写。</p>
         </li>
         <li>
-          <span class="n">03</span>
-          <h2>改稿</h2>
-          <p>导出任务包给外部模型，把完整回复贴回来，生成 v2。已采纳的批注自动归档。</p>
+          <h3>改稿在外</h3>
+          <p>应用不调用模型。导出任务包，把完整回复贴回来，成为新版本。</p>
         </li>
-      </ol>
+      </ul>
     </section>
 
     <section id="download" class="download">
-      <h2>安装到自己的电脑</h2>
-      <p class="lede">目前提供 Windows 桌面版。应用在本地运行，没有账号服务器，也没有云同步。macOS 版验证完成后再开放下载。</p>
-      <div class="cards">
-        <article class="card" data-os="windows">
-          <h3>Windows</h3>
-          <p class="asset-name" data-role="name">安装包准备中</p>
-          <a class="btn btn-gold" data-role="btn" aria-disabled="true">即将发布</a>
-        </article>
+      <div class="dl-copy">
+        <h2>安装到自己的电脑</h2>
+        <p>目前提供 Windows 桌面版。应用在本地运行，没有账号服务器，也没有云同步。</p>
       </div>
-      <p class="fine" id="release-meta">安装包将发布在本仓库的 GitHub Releases。有新版本时，按钮会自动指向最新文件。</p>
+      <div class="dl-box" data-os="windows">
+        <div>
+          <p class="os">Windows</p>
+          <p class="asset-name" data-role="name">安装包准备中</p>
+        </div>
+        <a class="btn btn-accent" data-role="btn" aria-disabled="true">即将发布</a>
+      </div>
+      <p class="fine" id="release-meta">安装包发布在本仓库 GitHub Releases。有新版本时，按钮会自动指向最新文件。macOS 版验证完成后再提供。</p>
     </section>
   </main>
 
   <footer>
-    <p>MarkEcho · 回笺。源码不在此仓库。此站只提供介绍与安装包下载。</p>
+    <p><strong>MarkEcho · 回笺</strong>　让每一次修改，都有 MarkEcho。</p>
+    <p class="foot-sub">此站只提供介绍与 Windows 安装包。源码不在此仓库。</p>
   </footer>
   <script src="site.js"></script>
 </body>
