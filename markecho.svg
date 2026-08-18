@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#1C2430"/>
-  <path d="M5 21c5.5-11 16.5-11 22 0" stroke="#7FD3CD" stroke-width="1.6" stroke-linecap="round" opacity="0.4"/>
-  <path d="M8.2 21c4-7.2 11.6-7.2 15.6 0" stroke="#5EC4BD" stroke-width="1.7" stroke-linecap="round" opacity="0.7"/>
-  <path d="M11.4 21c2.4-3.6 6.8-3.6 9.2 0" stroke="#2A9D8F" stroke-width="1.8" stroke-linecap="round"/>
-  <circle cx="16" cy="22.2" r="1.7" fill="#E8C36A"/>
+  <rect width="32" height="32" rx="8" fill="#F3EEE4"/>
+  <rect x="9.2" y="9.6" width="15.2" height="15.2" rx="3.2" fill="#0F766E"/>
+  <rect x="7.4" y="7" width="15.2" height="15.2" rx="3.2" fill="#FFFFFF"/>
+  <path d="M18.2 7h4.4c1.2 0 2.2 1 2.2 2.2V13.4L18.2 7Z" fill="#0F766E"/>
+  <rect x="10.2" y="10.4" width="5.2" height="1.6" rx="0.8" fill="#0F766E"/>
+  <path d="M10.2 18.6h4.2c.9 0 1.6-.7 1.6-1.6v-.2" stroke="#0F766E" stroke-width="1.7" stroke-linecap="round"/>
+  <path d="M10.2 16.4l1.7 1.7-1.7 1.7" stroke="#0F766E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
