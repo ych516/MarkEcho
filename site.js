@@ -14,7 +14,7 @@ function enable(box, asset) {
   const name = box.querySelector("[data-role=name]");
   btn.href = asset.browser_download_url;
   btn.removeAttribute("aria-disabled");
-  btn.textContent = "下载安装包";
+  btn.textContent = "下载";
   name.textContent = asset.name;
 }
 
@@ -29,10 +29,10 @@ async function main() {
     const win = pickWindows(data.assets || []);
     if (win && box) enable(box, win);
     if (data.tag_name) {
-      meta.textContent = `当前版本 ${data.tag_name}。macOS 还在验证，暂时不提供。`;
+      meta.textContent = `现在是 ${data.tag_name}。Mac 版还在打磨，先不下。`;
     }
   } catch (err) {
-    meta.textContent = "暂时拿不到安装包，请稍后再试。macOS 还在验证，暂时不提供。";
+    meta.textContent = "暂时下不了，过会儿再试。Mac 版还在打磨，先不下。";
   }
 }
 
