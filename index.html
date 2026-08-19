@@ -1,155 +1,158 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MarkEcho · 回笺</title>
-  <meta name="description" content="在稿上圈意见，丢给 AI 改出新一版。原文不会被写花。先出了 Windows 版。" />
+  <meta name="description" content="在稿上圈意见，而不是在稿里留痕。Markdown 阅读、批注与改稿工具。" />
   <meta property="og:title" content="MarkEcho · 回笺" />
-  <meta property="og:description" content="让每一次修改，都有 MarkEcho。" />
-  <link rel="icon" href="markecho.svg" type="image/svg+xml" />
+  <meta property="og:description" content="在稿上圈意见，而不是在稿里留痕。" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="header">
-    <a class="logo" href="./">
-      <img src="markecho.svg" width="28" height="28" alt="" />
-      <span class="logo-en">MarkEcho</span>
-      <span class="logo-zh">回笺</span>
+
+<!-- ── 顶栏 ── -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">
+      <img src="markecho.png" alt="MarkEcho 图标" width="28" height="28" />
+      <span class="brand-name">MarkEcho</span>
+      <span class="brand-sub">回笺</span>
     </a>
-    <nav>
+    <nav class="site-nav">
       <a href="#features">能做什么</a>
-      <a href="#download">下载</a>
+      <a href="#download" class="nav-cta">下载</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <h1>在稿上<span>圈意见</span>，<br />而不是在稿里留痕。</h1>
-          <p class="info">打开一篇方案，在排好的稿子上划句子、写意见，再丢给 AI 改出完整一版。原文不会被写花。</p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="#download">下载 Windows 版</a>
-            <a class="btn btn-ghost" href="#preview">看一眼界面</a>
-          </div>
-          <p class="hero-note">先出 Windows 版 · 不用注册 · 稿子不上传</p>
-        </div>
-        <div class="hero-visual" id="preview">
-          <div class="window" role="img" aria-label="在稿子上划了一句，右边写下批注">
-            <div class="titlebar">
-              <div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div>
-              <div class="title-center">
-                <span class="fname">首页改版.md</span>
-                <span class="pill">v1</span>
-              </div>
-            </div>
-            <div class="shell">
-              <aside class="col files">
-                <div class="tabs"><span class="on">文件</span><span>大纲</span></div>
-                <ul>
-                  <li>产品原则.md</li>
-                  <li class="current">首页改版.md</li>
-                  <li>发布说明.md</li>
-                </ul>
-              </aside>
-              <section class="col reader">
-                <div class="docbar">
-                  <span class="seg on">阅读</span>
-                  <span class="seg">编辑</span>
-                  <span class="seg review-on">审阅 1</span>
-                </div>
-                <article class="prose">
-                  <h2>首页改版</h2>
-                  <p>第一屏只讲一件事：这是给人读的稿子，不是后台。</p>
-                  <p>报名按钮请移出首屏。<mark>读者还没搞懂这是什么，就先看到报名。</mark></p>
-                  <p>第二屏再用一个真实场景说明：圈一下、写意见、收回新稿。</p>
-                </article>
-              </section>
-              <aside class="col inspector">
-                <div class="insp-head">审阅</div>
-                <div class="card active">
-                  <p class="quote">读者还没搞懂这是什么，就先看到报名。</p>
-                  <p class="body">首屏先把「在稿上圈意见」讲清楚。报名放到看完场景之后。</p>
-                  <p class="meta">小林 · 刚才</p>
-                </div>
-              </aside>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="platforms">
-      <div class="wrap">
-        <p class="avail">现在能用的系统</p>
-        <div class="plat-list">
-          <div class="plat on">
-            <span class="plat-icon" aria-hidden="true">⊞</span>
-            <span>Windows</span>
-          </div>
-          <div class="plat off" title="还在打磨">
-            <span class="plat-icon" aria-hidden="true"></span>
-            <span>Mac</span>
-            <em>还在打磨</em>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="features" id="features">
-      <div class="wrap">
-        <h2>对着稿子批。原文不被改乱。用你自己的 AI 改。</h2>
-        <div class="feat-grid">
-          <article>
-            <div class="feat-icon i1" aria-hidden="true"></div>
-            <h3>对着排好的稿子批</h3>
-            <p>表格、列表、图都按阅读时的样子显示。你划的，就是别人读到的。</p>
-          </article>
-          <article>
-            <div class="feat-icon i2" aria-hidden="true"></div>
-            <h3>原稿不会被改乱</h3>
-            <p>意见写在旁边，不写进稿子。发给同事的还是干净的 Markdown。</p>
-          </article>
-          <article>
-            <div class="feat-icon i3" aria-hidden="true"></div>
-            <h3>用你自己的 AI 改</h3>
-            <p>导出带意见的说明，贴到你平时用的 AI 里。把整篇回复拿回来，就是新的一版。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="download" id="download">
-      <div class="wrap dl-inner">
-        <div>
-          <h2>下载</h2>
-          <p>先出了 Windows 版。装在自己电脑上就能用，不用注册，稿子也不会传到网上。</p>
-        </div>
-        <div class="dl-box" data-os="windows">
-          <div>
-            <p class="os">Windows</p>
-            <p class="asset-name" data-role="name">还在打包</p>
-          </div>
-          <a class="btn btn-primary" data-role="btn" aria-disabled="true">还没做好</a>
-        </div>
-        <p class="fine" id="release-meta">有更新会直接出现在上面。Mac 版还在打磨，先不下。</p>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="wrap">
-        <h2>开始用。<br />让每一次修改，都有回笺。</h2>
-        <a class="btn btn-on-dark" href="#download">下载 Windows 版</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap foot">
-      <span>MarkEcho · 回笺</span>
+<!-- ── 英雄区 ── -->
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="hero-eyebrow">Markdown 阅读 · 批注 · 改稿</p>
+    <h1 class="hero-title">
+      在稿上圈意见，<br />而不是在稿里留痕。
+    </h1>
+    <p class="hero-body">
+      打开一篇方案，在排好的稿子上划句子、写意见，<br class="br-md" />
+      再丢给 AI 改出完整一版。原文不会被写花。
+    </p>
+    <div class="hero-actions">
+      <a href="#download" class="btn btn-accent">下载 Windows 版</a>
+      <a href="#features" class="btn btn-outline">看一眼能做什么</a>
     </div>
-  </footer>
-  <script src="site.js"></script>
+    <p class="hero-note">先出 Windows 版 · 不用注册 · 稿子不上传</p>
+  </div>
+</section>
+
+<!-- ── 特性 ── -->
+<section class="features" id="features">
+  <div class="container">
+    <h2 class="section-title">为阅读和批注而生</h2>
+    <p class="section-sub">不是另一个 Markdown 编辑器。它的重心在读与批，而非写。</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#9998;</div>
+        <h3>对着排好的稿子批</h3>
+        <p>表格、列表、Mermaid 图都按阅读时的样子显示。你划的，就是别人读到的那句话。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#10003;</div>
+        <h3>原稿不会被改乱</h3>
+        <p>意见写在旁边，不写进稿子。发给同事的还是干净的 Markdown，无任何批注污染。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#8594;</div>
+        <h3>用你自己的 AI 改</h3>
+        <p>导出带意见的说明，贴到 Claude / GPT / 任意 AI。把整篇回复拿回来，就是新的一版。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9752;</div>
+        <h3>版本有据可查</h3>
+        <p>每次改稿都留下完整记录：谁改了什么、哪条意见对应哪个改动，一目了然。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128274;</div>
+        <h3>稿子在自己电脑上</h3>
+        <p>本地应用，不需要注册，稿子不上传任何服务器。你的文件只属于你。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9881;</div>
+        <h3>Mermaid 图表开箱即用</h3>
+        <p>流程图、时序图、架构图，直接在阅读视图里渲染，无需额外插件或配置。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 工作流程 ── -->
+<section class="workflow">
+  <div class="container">
+    <h2 class="section-title">三步完成一轮审稿</h2>
+    <ol class="workflow-steps">
+      <li class="step">
+        <span class="step-num">1</span>
+        <div>
+          <strong>划选 · 批注</strong>
+          <p>在阅读视图选中任意原文，在右侧写下意见。支持高亮、修改建议、提问、删除建议四种类型。</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">2</span>
+        <div>
+          <strong>导出 · 交给 AI</strong>
+          <p>一键导出包含原文与所有批注的说明包，直接粘贴给任意 AI，让它按意见改出整篇新稿。</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">3</span>
+        <div>
+          <strong>导入 · 生成新版本</strong>
+          <p>把 AI 回复粘贴回来，MarkEcho 自动识别改动，生成 v2 并归档已解决的批注。</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ── 下载 ── -->
+<section class="download" id="download">
+  <div class="container">
+    <h2 class="section-title">下载</h2>
+    <p class="section-sub">装在自己电脑上就能用，不需要注册，稿子也不会传到网上。</p>
+    <div class="platform-grid">
+      <div class="platform-card" data-os="windows">
+        <div class="platform-icon">&#9783;</div>
+        <h3>Windows</h3>
+        <p class="platform-req">Windows 10 / 11 · x64</p>
+        <a class="btn btn-accent" href="#" data-role="btn" aria-disabled="true">获取中…</a>
+        <p class="platform-filename" data-role="name"></p>
+      </div>
+      <div class="platform-card platform-card--soon" data-os="mac">
+        <div class="platform-icon">&#63743;</div>
+        <h3>macOS</h3>
+        <p class="platform-req">Intel &amp; Apple Silicon · 通用版</p>
+        <a class="btn btn-outline" href="#" data-role="btn" aria-disabled="true">即将推出</a>
+        <p class="platform-filename" data-role="name"></p>
+      </div>
+    </div>
+    <p class="download-note" id="release-meta">正在查询最新版本…</p>
+  </div>
+</section>
+
+<!-- ── 页脚 ── -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span class="footer-brand">MarkEcho · 回笺</span>
+    <span class="footer-links">
+      <a href="https://github.com/ych516/markecho-src" target="_blank" rel="noopener">源码</a>
+      <a href="https://github.com/ych516/MarkEcho/releases" target="_blank" rel="noopener">全部版本</a>
+    </span>
+  </div>
+</footer>
+
+<script src="site.js"></script>
 </body>
 </html>
