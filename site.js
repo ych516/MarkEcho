@@ -1,12 +1,22 @@
-
 const RELEASES = "https://api.github.com/repos/ych516/MarkEcho/releases/latest";
 
 function pickWindows(assets) {
   const names = assets.map((a) => ({ a, n: a.name.toLowerCase() }));
-  return names.find((x) => x.n.endsWith(".msi"))?.a
-    || names.find((x) => x.n.endsWith(".exe"))?.a
-    || names.find((x) => x.n.includes("windows") || x.n.includes("win"))?.a
-    || null;
+  return (
+    names.find((x) => x.n.endsWith(".exe"))?.a ||
+    names.find((x) => x.n.endsWith(".msi"))?.a ||
+    names.find((x) => x.n.includes("windows") || x.n.includes("win"))?.a ||
+    null
+  );
+}
+
+function pickMac(assets) {
+  const names = assets.map((a) => ({ a, n: a.name.toLowerCase() }));
+  return (
+    names.find((x) => x.n.endsWith(".dmg"))?.a ||
+    names.find((x) => x.n.includes("macos") || x.n.includes("mac"))?.a ||
+    null
+  );
 }
 
 function enable(box, asset) {
@@ -20,19 +30,27 @@ function enable(box, asset) {
 
 async function main() {
   const meta = document.getElementById("release-meta");
-  const box = document.querySelector("[data-os=windows]");
+  const winBox = document.querySelector("[data-os=windows]");
+  const macBox = document.querySelector("[data-os=mac]");
   try {
     const res = await fetch(RELEASES);
     if (res.status === 404) return;
     if (!res.ok) throw new Error(String(res.status));
     const data = await res.json();
-    const win = pickWindows(data.assets || []);
-    if (win && box) enable(box, win);
-    if (data.tag_name) {
-      meta.textContent = `现在是 ${data.tag_name}。Mac 版还在打磨，先不下。`;
+    const assets = data.assets || [];
+    const win = pickWindows(assets);
+    const mac = pickMac(assets);
+    if (win && winBox) enable(winBox, win);
+    if (mac && macBox) enable(macBox, mac);
+    if (meta && data.tag_name) {
+      const parts = [];
+      if (win) parts.push("Windows");
+      if (mac) parts.push("macOS");
+      const available = parts.length ? parts.join(" / ") + " 版已可下载" : "";
+      meta.textContent = `现在是 ${data.tag_name}。${available}`;
     }
-  } catch (err) {
-    meta.textContent = "暂时下不了，过会儿再试。Mac 版还在打磨，先不下。";
+  } catch {
+    if (meta) meta.textContent = "暂时下不了，过会儿再试。";
   }
 }
 
