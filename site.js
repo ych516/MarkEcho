@@ -1,22 +1,12 @@
 const RELEASES = "https://api.github.com/repos/ych516/MarkEcho/releases/latest";
 
-function pickWindows(assets) {
-  const names = assets.map((a) => ({ a, n: a.name.toLowerCase() }));
-  return (
-    names.find((x) => x.n.endsWith(".exe"))?.a ||
-    names.find((x) => x.n.endsWith(".msi"))?.a ||
-    names.find((x) => x.n.includes("windows") || x.n.includes("win"))?.a ||
-    null
-  );
-}
-
-function pickMac(assets) {
-  const names = assets.map((a) => ({ a, n: a.name.toLowerCase() }));
-  return (
-    names.find((x) => x.n.endsWith(".dmg"))?.a ||
-    names.find((x) => x.n.includes("macos") || x.n.includes("mac"))?.a ||
-    null
-  );
+function pick(assets, tests) {
+  const lowered = assets.map((a) => ({ a, n: a.name.toLowerCase() }));
+  for (const test of tests) {
+    const found = lowered.find((x) => test(x.n));
+    if (found) return found.a;
+  }
+  return null;
 }
 
 function enable(box, asset) {
@@ -32,25 +22,36 @@ async function main() {
   const meta = document.getElementById("release-meta");
   const winBox = document.querySelector("[data-os=windows]");
   const macBox = document.querySelector("[data-os=mac]");
+
   try {
     const res = await fetch(RELEASES);
-    if (res.status === 404) return;
-    if (!res.ok) throw new Error(String(res.status));
+    if (res.status === 404) {
+      if (meta) meta.textContent = "尚未发布正式版本，敬请期待。";
+      return;
+    }
+    if (!res.ok) throw new Error(res.status);
     const data = await res.json();
     const assets = data.assets || [];
-    const win = pickWindows(assets);
-    const mac = pickMac(assets);
+
+    const win = pick(assets, [
+      (n) => n.endsWith(".exe"),
+      (n) => n.endsWith(".msi"),
+      (n) => n.includes("windows") || n.includes("win"),
+    ]);
+    const mac = pick(assets, [
+      (n) => n.endsWith(".dmg"),
+      (n) => n.includes("macos") || n.includes("mac"),
+    ]);
+
     if (win && winBox) enable(winBox, win);
     if (mac && macBox) enable(macBox, mac);
+
     if (meta && data.tag_name) {
-      const parts = [];
-      if (win) parts.push("Windows");
-      if (mac) parts.push("macOS");
-      const available = parts.length ? parts.join(" / ") + " 版已可下载" : "";
-      meta.textContent = `现在是 ${data.tag_name}。${available}`;
+      const available = [win && "Windows", mac && "macOS"].filter(Boolean).join(" / ");
+      meta.textContent = `当前版本 ${data.tag_name}${available ? "　· 　" + available + " 版已可下载" : ""}`;
     }
   } catch {
-    if (meta) meta.textContent = "暂时下不了，过会儿再试。";
+    if (meta) meta.textContent = "暂时无法获取版本信息，请稍后再试。";
   }
 }
 
